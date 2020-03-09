@@ -10,6 +10,7 @@ import moment from "moment";
 
 const TripBoxHis = ({ history, data, fetchData }) => {
   const {
+    id,
     trip_id,
     start_datetime,
     request_status,
@@ -25,6 +26,7 @@ const TripBoxHis = ({ history, data, fetchData }) => {
     departure_detail,
     destination_detail
   } = data;
+
   const datetime = moment(start_datetime).format("MMMM Do YYYY h:mm a");
   const cancelable = () => {
     return request_status == 'approved' || request_status == 'pending' || request_status == 'paid'
