@@ -44,6 +44,8 @@ const CreateReviewModal = ({ request_id, review_id, passenger_id, driver_id, fet
     rating: 0
   });
 
+  const isDisabled = form.comment.length > 1000 ;
+
   const handleOpen = async () => {
     if (review_id != null) {
       await getReview();
@@ -123,7 +125,7 @@ const CreateReviewModal = ({ request_id, review_id, passenger_id, driver_id, fet
           <div style={{ marginTop: "0px", display: 'flex' }}>
             {review_id != null ? (<Button onClick={handleClose} color="secondary" style={{ fontSize: 16, flexGrow: 1 }}>OK</Button>) :
               <React.Fragment>
-                <Button onClick={review} color="secondary" style={{ fontSize: 16, flexGrow: 1 }}>OK</Button>
+                <Button onClick={review} color="secondary" style={{ fontSize: 16, flexGrow: 1 }} disabled={isDisabled}>OK</Button>
                 <Button onClick={handleClose} style={{ color: "#BDBDBD", fontSize: 16, flexGrow: 1 }}>Cancel</Button>
               </React.Fragment>
             }
